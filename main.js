@@ -28,7 +28,9 @@ let banco = [
   
   let aviso = `${ultimoElementoBD.nome} foi adicionada ao banco  aperte em "Listar Carros" para ver o novo conteúdo`;
   lista.innerHTML = `<li>${aviso}</li>`
-     }
+  
+  oculto()
+  }
   
 //função listar
   let lista = document.querySelector("#listaTudo")
@@ -39,6 +41,8 @@ let banco = [
     for(let i of banco){
      lista.innerHTML += `<tr> <td>${i.nome}</td> <td>${i.vaga}</td> </tr>`;
       }
+
+    visible()
   }
 
 //função removerCar
@@ -51,15 +55,19 @@ let banco = [
        if(valorVaga == NumberoVaga){
          banco.splice(i, 1);
 
-          lista.innerHTML = "";
-          for(let j of banco){
-            lista.innerHTML += `<tr> <td>${j.nome}</td> <td>${j.vaga}</td> </tr>`;
-          }
+         listarCar()
        }
+
      }
   }
 
-
+  //função esconder div
+  function oculto(){
+    document.querySelector(".titulo-lista").style.display = "none"
+  }
+  function visible(){
+    document.querySelector(".titulo-lista").style.display = "flex"
+  }
 
 
   window.onload = listarCar;
