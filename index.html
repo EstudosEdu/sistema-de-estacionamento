@@ -8,18 +8,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="add">Adiciona carro</button>
-  <button id="listar" >Listar Carros</button>
-  <button id="remover" >Remover Carros</button>
-  <button id="modificar" >Editar Carros</button>
+  <header class="btn-titulo">
+    <button class="btn" id="add">Adiciona carro</button>
+    <button class="btn" id="listar" >Listar Carros</button>
+    <button class="btn" id="remover" >Remover Carros</button>
+    <button class="btn" id="modificar" >Editar Carros</button>
+  </header>
+  
+  <section class="container-lista">
+    <div class="titulo-lista">
+      <p><strong>Nome</strong></p>
+      <p><strong>Vaga</strong></p>
+    </div>
 
-  <div class="titulo-lista">
-    <p><strong>Nome</strong></p>
-    <p><strong>Vaga</strong></p>
-  </div>
-
-  <table id="listaTudo" ></table>
-
+    <table id="listaTudo" ></table>
+  </section>
+  
 
   <script type="text/javascript" src="main.js"> </script>
 </body>

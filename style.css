@@ -2,7 +2,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #dee2e6;
+}
+body{
+  background: #343a40;
 }
 .titulo-lista{
   display: flex;
+  color: #dee2e6;
+}
+.btn-titulo{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.btn{
+  border: none;
+  background: #0077b6;
+  font-size: 18px;
+  color: #e9ecef;
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin-left: 1%;
+  border-radius: 15px;
+}
+
+.container-lista{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
 }
