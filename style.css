@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #dee2e6;
 }
 body{
   background: #343a40;
@@ -11,6 +10,7 @@ body{
   display: flex;
   color: #dee2e6;
 }
+
 .btn-titulo{
   width: 100%;
   height: auto;
@@ -30,10 +30,48 @@ body{
   margin-left: 1%;
   border-radius: 15px;
 }
+/*lista com Nome, Carro, Vaga*/
 
 .container-lista{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+}
+/*formulario Remover Carro*/
+.formRemoverCar {
+  display: flex;
+  justify-content: center;
+}
+.form_RM_Car{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0077b6;
+  width: 47%;
+  height: 120px;
+  justify-content: space-evenly;
+  border-radius: 20px;
+}
+.form_RM_Car label{
+  font-size: 20px;
+  font-weight: bold;
+  color: #dee2e6;
+}
+
+.cp_1{
+  border: none;
+  width: 80%;
+  height: 30px;
+  border-radius: 20px;
+  color: black;
+}
+
+.cp_2_Enviar{
+  border: none;
+  background: white;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
 }

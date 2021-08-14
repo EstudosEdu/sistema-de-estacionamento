@@ -15,13 +15,23 @@
     <button class="btn" id="modificar" >Editar Carros</button>
   </header>
   
-  <section class="container-lista">
-    <div class="titulo-lista">
-      <p><strong>Nome</strong></p>
-      <p><strong>Vaga</strong></p>
+  <section >
+    <div class="container-lista">
+      <div class="titulo-lista">
+        <p><strong>Nome</strong></p>
+        <p><strong>Vaga</strong></p>
+      </div>
+      <table id="listaTudo"></table>
+    </div>
+    
+    <div class="formRemoverCar">
+      <form action="" class="form_RM_Car">
+        <label for="campo_1">Coloque a vaga onde o carro que será removido está localizado:</label>
+        <input type="text" id="campo_1" class="cp_1">
+        <input type="submit" class="cp_2_Enviar" value="Confirmar">
+      </form>
     </div>
 
-    <table id="listaTudo" ></table>
   </section>
   
 

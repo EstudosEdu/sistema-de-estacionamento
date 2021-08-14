@@ -1,3 +1,5 @@
+window.onload = listarCar;
+
 let banco = [
   {
    nome: "João",
@@ -30,6 +32,7 @@ let banco = [
   lista.innerHTML = `<li>${aviso}</li>`
   
   oculto()
+  close_RM_Car()
   }
   
 //função listar
@@ -43,12 +46,18 @@ let banco = [
       }
 
     visible()
+    close_RM_Car()
   }
 
 //função removerCar
 
+  //form que abre ao apertar em remover
+
+
+
   function removeCar(){
-    let NumberoVaga = prompt("escreva qual a vaga em que está o carro que deseja apagar:")
+    // let NumberoVaga = prompt("Qual vaga deseja remover? ")
+    open_RM_Car()
 
     for(let i = 0; i < banco.length; i++){
       let valorVaga = banco[i].vaga;
@@ -61,6 +70,26 @@ let banco = [
      }
   }
 
+  const inputRemoverCar = document.querySelector("#campo_1").value;
+  document.querySelector(".cp_2_Enviar")
+    .addEventListener("click", avisoRemoverCar);
+
+  function avisoRemoverCar(e){
+    inputRemoverCar.value = "";//faz com que remova o valor digitado anteriormente e deixando em branco
+    close_RM_Car()
+
+    e.preventDefault();
+  }
+
+
+  function close_RM_Car(){
+    document.querySelector(".form_RM_Car").style.display = "none"
+  }
+  function open_RM_Car(){
+    document.querySelector(".form_RM_Car").style.display = "flex"
+  }
+
+
   //função esconder div
   function oculto(){
     document.querySelector(".titulo-lista").style.display = "none"
@@ -70,7 +99,9 @@ let banco = [
   }
 
 
-  window.onload = listarCar;
+
+
+
 
 
   document.querySelector("#add")
@@ -86,3 +117,6 @@ let banco = [
      .addEventListener("click", ()=>{
        confirm("Deseja Modificar?")
   })
+
+
+
