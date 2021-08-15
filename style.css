@@ -6,6 +6,16 @@
 body{
   background: #343a40;
 }
+
+.container-geral {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .titulo-lista{
   display: flex;
   color: #dee2e6;
@@ -14,7 +24,6 @@ body{
 .btn-titulo{
   width: 100%;
   height: auto;
-  margin: auto;
   display: flex;
   justify-content: center;
   padding-top: 1rem;

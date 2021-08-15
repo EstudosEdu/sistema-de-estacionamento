@@ -17,22 +17,26 @@ let banco = [
    vaga: 15,
   }
  ];
-  
-//função add car
+
+ //função addCar
+
   function addCar(){
-   banco.push({
-    nome: "clara",
-    placa: "BLZ1221",
-    vaga: 20})
-  
-     let tamanho = banco.length
-  let ultimoElementoBD = banco[tamanho -1]
-  
-  let aviso = `${ultimoElementoBD.nome} foi adicionada ao banco  aperte em "Listar Carros" para ver o novo conteúdo`;
-  lista.innerHTML = `<li>${aviso}</li>`
-  
-  oculto()
-  close_RM_Car()
+    let pergNome = prompt("Coloque seu Nome:")
+    let pergPlaca = prompt("Coloque sua Placa:")
+    let pergVaga = prompt("Coloque a vaga desejada:")
+
+    banco.push({
+      nome: pergNome,
+      placa: pergPlaca,
+      vaga: pergVaga })
+
+    let tamanho = banco.length
+    let ultimoElementoBD = banco[tamanho -1]
+    
+    let aviso = `${ultimoElementoBD.nome} foi adicionada(o) ao banco  aperte em "Listar Carros" para ver o novo conteúdo`;
+    lista.innerHTML = `<li>${aviso}</li>`
+
+    oculto()
   }
   
 //função listar
@@ -46,7 +50,6 @@ let banco = [
       }
 
     visible()
-    close_RM_Car()
   }
 
 //função removerCar
@@ -56,8 +59,7 @@ let banco = [
 
 
   function removeCar(){
-    // let NumberoVaga = prompt("Qual vaga deseja remover? ")
-    open_RM_Car()
+    let NumberoVaga = prompt("Qual vaga deseja remover? ")
 
     for(let i = 0; i < banco.length; i++){
       let valorVaga = banco[i].vaga;
@@ -70,24 +72,6 @@ let banco = [
      }
   }
 
-  const inputRemoverCar = document.querySelector("#campo_1").value;
-  document.querySelector(".cp_2_Enviar")
-    .addEventListener("click", avisoRemoverCar);
-
-  function avisoRemoverCar(e){
-    inputRemoverCar.value = "";//faz com que remova o valor digitado anteriormente e deixando em branco
-    close_RM_Car()
-
-    e.preventDefault();
-  }
-
-
-  function close_RM_Car(){
-    document.querySelector(".form_RM_Car").style.display = "none"
-  }
-  function open_RM_Car(){
-    document.querySelector(".form_RM_Car").style.display = "flex"
-  }
 
 
   //função esconder div

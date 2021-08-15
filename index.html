@@ -8,32 +8,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="btn-titulo">
-    <button class="btn" id="add">Adiciona carro</button>
-    <button class="btn" id="listar" >Listar Carros</button>
-    <button class="btn" id="remover" >Remover Carros</button>
-    <button class="btn" id="modificar" >Editar Carros</button>
-  </header>
-  
-  <section >
-    <div class="container-lista">
-      <div class="titulo-lista">
-        <p><strong>Nome</strong></p>
-        <p><strong>Vaga</strong></p>
-      </div>
-      <table id="listaTudo"></table>
-    </div>
+  <div class="container-geral">
+    <header class="btn-titulo">
+      <button class="btn" id="add">Adiciona carro</button>
+      <button class="btn" id="listar" >Listar Carros</button>
+      <button class="btn" id="remover" >Remover Carros</button>
+      <button class="btn" id="modificar" >Editar Carros</button>
+    </header>
     
-    <div class="formRemoverCar">
-      <form action="" class="form_RM_Car">
-        <label for="campo_1">Coloque a vaga onde o carro que será removido está localizado:</label>
-        <input type="text" id="campo_1" class="cp_1">
-        <input type="submit" class="cp_2_Enviar" value="Confirmar">
-      </form>
-    </div>
-
-  </section>
-  
+    <section >
+      <div class="container-lista">
+        <div class="titulo-lista">
+          <p><strong>Nome</strong></p>
+          <p><strong>Vaga</strong></p>
+        </div>
+        <table id="listaTudo"></table>
+      </div>
+    </section>
+  </div>
+  <!--Form de remover carro-->
+  <!--<div class="formRemoverCar">
+    <form action="" class="form_RM_Car">
+      <label for="campo_1">Coloque a vaga onde o carro que será removido está localizado:</label>
+      <input type="text" id="campo_1" class="cp_1">
+      <input type="submit" class="cp_2_Enviar" value="Confirmar">
+    </form>
+  </div>-->
 
   <script type="text/javascript" src="main.js"> </script>
 </body>
