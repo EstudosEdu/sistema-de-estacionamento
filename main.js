@@ -1,9 +1,6 @@
 document.querySelector("#add")
 .addEventListener("click", addCar);
 
-document.querySelector("#listar")
-.addEventListener("click", listarCar);
-
 document.querySelector("#remover")
 .addEventListener("click", removeCar);
 
@@ -43,12 +40,9 @@ function addCar(){
     vaga: pergVaga
   })
 
-  let tamanho = banco.length
-  let ultimoElementoBD = banco[tamanho -1]
-  let aviso = `${ultimoElementoBD.nome} foi adicionada(o) ao banco  aperte em "Listar Carros" para ver o novo conteúdo`;
-  lista.innerHTML = `<li>${aviso}</li>`
+  alert("Veiculo registrado com sucesso.")
 
-  oculto()
+  listarCar()
 }
   
 
@@ -59,7 +53,7 @@ let lista = document.querySelector("#listaTudo")
 function listarCar(){
   lista.innerHTML = "";
   for(let i of banco){
-    lista.innerHTML += `<tr> <td>${i.nome}</td> <td>${i.vaga}</td> <td>${i.placa}</td> </tr>`;
+    lista.innerHTML += `<tr> <td>${i.nome}</td> <td>${i.placa}</td><td>${i.vaga}</td> </tr>`;
   }
   visible()
 }

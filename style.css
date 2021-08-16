@@ -7,6 +7,9 @@ body{
   background: #343a40;
 }
 
+
+
+
 /*lista com os nomes */
 tr {
   display: flex;
@@ -92,4 +95,9 @@ tr {
   border: none;
   border-radius: 20px;
   font-size: 18px;
+}
+
+/*estilização da lista e valores dentro dela*/
+#listaTudo{
+	color: white;
 }
