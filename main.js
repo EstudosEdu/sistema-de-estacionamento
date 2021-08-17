@@ -10,9 +10,11 @@ document.querySelector("#modificar")
 
 //Variaveis
 let lista = document.querySelector("#listaTudo")
+let formDelete = document.querySelector('.formRemoverCar')
 let pergNome = '';
 let pergPlaca = '';
 let pergVaga = null;
+
 
 
 //Mostrar lista ao carregar a pagina
@@ -116,13 +118,30 @@ function editCar(){
 
 //função removerCar
 function removeCar(){
-  let NumberoVaga = prompt("Qual vaga deseja remover? ")
+  formDelete.style.display = 'flex';
+  let btn = document.querySelector('#btn-form1');
+  let btnCancelar = document.querySelector('#btn-form2')
+  let form = document.querySelector('#campo_1');
+  btnCancelar.addEventListener("click", function(){
+    formDelete.style.display = 'none';
+  })
 
-  for(let i = 0; i < banco.length; i++){
-    let valorVaga = banco[i].vaga;
-      if(valorVaga == NumberoVaga){
-        banco.splice(i, 1);
-        listarCar()
+
+  btn.addEventListener("click", function(){
+      let vaga = form.value;
+      for(let i = 0; i < banco.length; i++){
+        let valorVaga = banco[i].vaga;
+          if(valorVaga == vaga){
+            banco.splice(i, 1);
+            listarCar();
+          }
       }
-  }
+    form.value = '';
+    formDelete.style.display = 'none';
+    })
+
 }
+
+// function displayForm(){
+//   document.querySelector('.formRemoverCar').style.display = 'flex'
+// }
