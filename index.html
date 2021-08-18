@@ -18,8 +18,8 @@
       <label for="campo_1">Coloque a vaga onde o carro que será removido está localizado:</label>
       <input type="text" id="campo_1" class="cp_1">
       <div class="action">
-        <button class="btn-form" id="btn-form1">Confirmar</button>
-        <button class="btn-form" id="btn-form2">Cancelar</button>
+        <button class="btn-form btn-primary" id="btn-form1">Confirmar</button>
+        <button class="btn-form btn-warning" id="btn-form2">Cancelar</button>
       </div>
 
 
@@ -33,17 +33,27 @@
     </header>
     
     <section >
-      <div class="container-lista">
-        <div class="titulo-lista">
+      <!-- <div class="container-lista"> -->
+        <!-- <div class="titulo-lista">
           <p><strong>Nome</strong></p>
           <p><strong>Placa</strong></p>
           <p><strong>Vaga</strong></p>
-        </div>
-        <table id="listaTudo"></table>
-      </div>
+        </div> -->
+        <table  class="table table-dark table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Vaga</th>
+            </tr>
+          </thead>
+          <tbody id="listaTudo">
+
+          </tbody>
+        </table>
+      <!-- </div> -->
     </section>
   </div>
-  <!--Form de remover carro-->
 
   <script type="text/javascript" src="main.js"> </script>
 </body>
