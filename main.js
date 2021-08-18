@@ -7,9 +7,20 @@
 // document.querySelector("#modificar")
 // .addEventListener("click", editCar);
 
+document.querySelector("#addConfirme")
+  .addEventListener("click", addCar);
+
+document.querySelector("#removeConfirm")
+  // .addEventListener("click", );
+
+document.querySelector("#editConfirm")
+  // .addEventListener("click", );
+
+
 //Variaveis
 let lista = document.querySelector("#listaTudo")
-let formDelete = document.querySelector('.formRemoverCar')
+
+
 let pergNome = '';
 let pergPlaca = '';
 let pergVaga = null;
@@ -44,55 +55,24 @@ function listarCar(){
 
 //função Adicionar Carro
 function addCar() {
-	verificationName();
-  alert("Veiculo registrado com sucesso.")
+  let addNome = document.querySelector('#addNome').value
+  let addPlaca = document.querySelector('#addPlaca').value
+  let addVaga = document.querySelector('#addVaga').value
+
+  if(addNome && addPlaca && addVaga != '' || null){
+  banco.push({
+    nome: addNome,
+    placa: addPlaca,
+    vaga: Number(addVaga),
+    });
+  }else{
+    alert('Coloque todos os valores')
+  }
   listarCar()
-}
-
-function verificationName() {
-	pergNome = prompt('Coloque seu Nome:');
-	
-	if (pergNome !== '' || null) {
-		verificationPlaca();
-	} else {
-		alert('Dados incorretos por favor preencha um dado verdadeiro!');
-		verificationName();
-	}
-}
-
-function verificationPlaca() {
-	pergPlaca = prompt('Coloque sua Placa:');
-
-	if (pergPlaca !== '' || null) {
-		verificationVaga();
-	} else {
-		alert('Dados incorretos por favor preencha um dado verdadeiro!');
-		verificationPlaca();
-	}
-}
-
-function verificationVaga() {
-	pergVaga = prompt('Coloque a vaga desejada:');
-	if (pergVaga !== '' || null) {
-		waitfordata();
-	} else {
-		alert('Dados incorretos por favor preencha um dado verdadeiro!');
-		verificationVaga();
-	}
-}
-
-function addtoDataBase() {
-	banco.push({
-		nome: pergNome,
-		placa: pergPlaca,
-		vaga: Number(pergVaga),
-	});
-}
-
-function waitfordata() {
-	if (pergNome && pergPlaca && pergVaga != null || '') {
-		addtoDataBase();
-	}
+  
+  document.querySelector('#addNome').value = '';
+  document.querySelector('#addPlaca').value = '';
+  document.querySelector('#addVaga').value = null;
 }
 
 //função de modificação
@@ -165,14 +145,14 @@ function addEditDataBase(upgradeVaga, upNome, upPlaca, upVaga){
 
 //função removerCar
 function removeCar(){
-  formDelete.style.display = 'flex';
-  let btn = document.querySelector('#btn-form1');
-  let btnCancelar = document.querySelector('#btn-form2')
-  let form = document.querySelector('#campo_1');
-  btnCancelar.addEventListener("click", function(){
-    formDelete.style.display = 'none';
-  })
-
+  // formDelete.style.display = 'flex';
+  // let btn = document.querySelector('#btn-form1');
+  // let btnCancelar = document.querySelector('#btn-form2')
+  // let form = document.querySelector('#campo_1');
+  // btnCancelar.addEventListener("click", function(){
+  //   formDelete.style.display = 'none';
+  // })
+  let removeCar = document.querySelector('#removeVaga').value
 
   btn.addEventListener("click", function(){
       let vaga = form.value;
