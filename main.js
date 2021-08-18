@@ -11,7 +11,7 @@ document.querySelector("#addConfirme")
   .addEventListener("click", addCar);
 
 document.querySelector("#removeConfirm")
-  // .addEventListener("click", );
+  .addEventListener("click", removeCar);
 
 document.querySelector("#editConfirm")
   // .addEventListener("click", );
@@ -147,16 +147,16 @@ function addEditDataBase(upgradeVaga, upNome, upPlaca, upVaga){
 function removeCar(){
   let removeCar = document.querySelector('#removeVaga').value
 
-  btn.addEventListener("click", function(){
-      let vaga = form.value;
-      for(let i = 0; i < banco.length; i++){
-        let valorVaga = banco[i].vaga;
-          if(valorVaga == vaga){
-            banco.splice(i, 1);
-            listarCar();
-          }
-      }
-    form.value = '';
-    formDelete.style.display = 'none';
-  })
+  if(removeCar != '' || null){
+    for(let i = 0; i < banco.length; i++){
+      let valorVaga = banco[i].vaga;
+        if(valorVaga == removeCar){
+          banco.splice(i, 1);
+          listarCar();
+        }
+    }
+  }else{
+    alert("Coloque todos os valores")
+  }
+  document.querySelector('#removeVaga').value = null;
 }
