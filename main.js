@@ -1,11 +1,11 @@
-document.querySelector("#add")
-.addEventListener("click", addCar);
+// document.querySelector("#add")
+// .addEventListener("click", addCar);
 
-document.querySelector("#remover")
-.addEventListener("click", removeCar);
+// document.querySelector("#remover")
+// .addEventListener("click", removeCar);
 
-document.querySelector("#modificar")
-.addEventListener("click", editCar);
+// document.querySelector("#modificar")
+// .addEventListener("click", editCar);
 
 //Variaveis
 let lista = document.querySelector("#listaTudo")
