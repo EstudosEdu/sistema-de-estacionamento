@@ -145,13 +145,6 @@ function addEditDataBase(upgradeVaga, upNome, upPlaca, upVaga){
 
 //função removerCar
 function removeCar(){
-  // formDelete.style.display = 'flex';
-  // let btn = document.querySelector('#btn-form1');
-  // let btnCancelar = document.querySelector('#btn-form2')
-  // let form = document.querySelector('#campo_1');
-  // btnCancelar.addEventListener("click", function(){
-  //   formDelete.style.display = 'none';
-  // })
   let removeCar = document.querySelector('#removeVaga').value
 
   btn.addEventListener("click", function(){

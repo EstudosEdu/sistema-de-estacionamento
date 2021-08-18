@@ -19,13 +19,6 @@ body{
   align-items: center;
 }
 
-.titulo-lista{
-  display: flex;
-  color: #dee2e6;
-  width: 100%;
-  justify-content: space-between;
-}
-
 .btn-titulo{
   width: 100%;
   height: auto;
@@ -42,63 +35,6 @@ body{
   cursor: pointer;
   margin-left: 1%;
   border-radius: 15px;
-}
-
-/*lista com Nome, Carro, Vaga*/
-.container-lista{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-}
-
-/*formulario Remover Carro*/
-.formRemoverCar {
-  width: 100%;
-  height: calc(100vh - 32px);
-  display: none;
-  justify-content: center;
-  position: absolute;
-  z-index: 2;
-  top: 2rem;
-}
-
-.form_RM_Car{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 47%;
-  height: 120px;
-  justify-content: space-evenly;
-  border-radius: 20px;
-}
-
-.form_RM_Car label{
-  font-size: 20px;
-  font-weight: bold;
-  color: #dee2e6;
-}
-
-.cp_1{
-  border: none;
-  width: 80%;
-  height: 30px;
-  border-radius: 20px;
-  color: black;
-  text-align: center;
-}
-.action {
-  display: flex;
-  gap: 4rem;
-}
-
-.btn-form{
-  border: none;
-  padding: 5px 5px;
-  border: none;
-  border-radius: 20px;
-  font-size: 18px;
 }
 
 /*estilização da lista e valores dentro dela*/
