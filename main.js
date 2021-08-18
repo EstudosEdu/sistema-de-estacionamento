@@ -7,15 +7,12 @@ document.querySelector("#remover")
 document.querySelector("#modificar")
 .addEventListener("click", editCar);
 
-
 //Variaveis
 let lista = document.querySelector("#listaTudo")
 let formDelete = document.querySelector('.formRemoverCar')
 let pergNome = '';
 let pergPlaca = '';
 let pergVaga = null;
-
-
 
 //Mostrar lista ao carregar a pagina
 window.onload = listarCar;
@@ -100,20 +97,70 @@ function waitfordata() {
 
 //função de modificação
 function editCar(){
-  let upgradeVaga = prompt("Informe a vaga onde está o nome que você deseja modificar as informações:");
+  editUpgradeVaga();
+  alert("Veiculo Modificado com sucesso.")
+  listarCar()
+}
+
+function editUpgradeVaga(){
+  let upgradeVaga = prompt('Informe a vaga onde está o "Veiculo" que você deseja modificar as informações:');
+
+  if(upgradeVaga !== '' || null){
+    editVerifcNome(upgradeVaga)
+  }else{
+    alert('Campo não preenchido preencha por favor!')
+    editUpgradeVaga()
+  }
+}
+
+function editVerifcNome(upgradeVaga){
   let upNome = prompt("Informe o novo Nome que deseja colocar:")
+
+  if(upNome !== '' || null){
+    editVerifcPlaca(upgradeVaga, upNome)
+  }else{
+    alert('Campo não preenchido preencha por favor!')
+    editVerifcNome()
+  }
+}
+
+function editVerifcPlaca(upgradeVaga, upNome){
   let upPlaca = prompt("Informe a nova Placa que deseja colocar:");
+
+  if(upPlaca !== '' || null){
+    editVerifcVaga(upgradeVaga, upNome, upPlaca)
+  }else{
+    alert('Campo não preenchido preencha por favor!')
+    editVerifcPlaca()
+  }
+}
+
+function editVerifcVaga(upgradeVaga, upNome, upPlaca){
   let upVaga = prompt("Informe a Nova vaga: ");
 
+  if(upVaga !== '' || null){
+    editForData(upgradeVaga, upNome, upPlaca, upVaga)
+  }else{
+    alert('Campo não preenchido preencha por favor!')
+    editVerifcVaga()
+  }
+}
+
+function editForData(upgradeVaga, upNome, upPlaca, upVaga){
+  if (upgradeVaga && upNome && upPlaca && upVaga != '' || null) {
+    addEditDataBase(upgradeVaga, upNome, upPlaca, upVaga);
+  }
+}
+
+function addEditDataBase(upgradeVaga, upNome, upPlaca, upVaga){
   for(let i = 0; i < banco.length; i++){
     let editVaga = banco[i].vaga;
     if(editVaga == upgradeVaga){
-      banco[i].nome = upNome
-      banco[i].placa = upPlaca
+      banco[i].nome = upNome,
+      banco[i].placa = upPlaca,
       banco[i].vaga = upVaga
     }
   }
-  listarCar()
 }
 
 //função removerCar
@@ -138,10 +185,5 @@ function removeCar(){
       }
     form.value = '';
     formDelete.style.display = 'none';
-    })
-
+  })
 }
-
-// function displayForm(){
-//   document.querySelector('.formRemoverCar').style.display = 'flex'
-// }
