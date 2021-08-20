@@ -15,121 +15,125 @@
 <body>
   <div class="container-geral">
 
-  <!-- Modal 1 -->
-  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Preencha todas as informações para adicionar um novo Veiculo</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
- 
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nome:</span>
-            <input type="text" id="addNome" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+    <!-- Modal 1 -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Preencha todas as informações para adicionar um novo Veiculo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Placa</span>
-            <input type="text" id="addPlaca" class="form-control" placeholder="Placa" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="modal-body">
+   
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Nome:</span>
+              <input type="text" id="addNome" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Placa</span>
+              <input type="text" id="addPlaca" class="form-control" placeholder="Placa" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Vaga</span>
+              <input type="text" id="addVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+  
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Vaga</span>
-            <input type="text" id="addVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="addConfirme" data-bs-dismiss="modal">Confirmar</button>
           </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" id="addConfirme" data-bs-dismiss="modal">Confirmar</button>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Modal 2 -->
-  <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Informe a vaga na qual está o carro que deseja remover</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-       
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Vaga</span>
-            <input type="text" id="removeVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+  
+    <!-- Modal 2 -->
+    <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Informe a vaga na qual está o carro que deseja remover</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" id="removeConfirm" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
+          <div class="modal-body">
+         
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Vaga</span>
+              <input type="text" id="removeVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" id="removeConfirm" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Modal 3 -->
-  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar informações</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Vaga que deseja editar as info</span>
-            <input type="text" id="editValorVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+  
+    <!-- Modal 3 -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar informações</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nome:</span>
-            <input type="text" id="editNome" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="modal-body">
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Vaga que deseja editar as info</span>
+              <input type="text" id="editValorVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+              <button type="button" class="btn btn-info" id="editAtualizar">
+                <img src="assets/img/icon.png" alt="lupa" class="img-icons">
+              </button>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Nome:</span>
+              <input type="text" id="editNome" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Placa</span>
+              <input type="text" id="editPlaca" class="form-control" placeholder="Placa" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Vaga</span>
+              <input type="text" id="editVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            
+  
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Placa</span>
-            <input type="text" id="editPlaca" class="form-control" placeholder="Placa" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" id="editConfirm" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Vaga</span>
-            <input type="text" id="editVaga" class="form-control" placeholder="Vaga" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" id="editConfirm" class="btn btn-primary">Confirmar</button>
         </div>
       </div>
     </div>
-  </div>
-
-
-    <header class="btn-titulo">
-      <button class="btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" id="add">Adiciona carro</button>
-      <button class="btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="remover" >Remover Carros</button>
-      <button class="btn btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal" id="modificar" >Editar Carros</button>
-    </header>
-    
-    <section >
-        <table  class="table table-dark table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Placa</th>
-              <th scope="col">Vaga</th>
-            </tr>
-          </thead>
-          <tbody id="listaTudo">
-
-          </tbody>
-        </table>
-      <!-- </div> -->
-    </section>
-  </div>
+  
+  
+      <header class="btn-titulo">
+        <button class="btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" id="add">Adiciona carro</button>
+        <button class="btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="remover" >Remover Carros</button>
+        <button class="btn btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal" id="modificar" >Editar Carros</button>
+      </header>
+      
+      <section >
+          <table  class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Vaga</th>
+              </tr>
+            </thead>
+            <tbody id="listaTudo">
+  
+            </tbody>
+          </table>
+        <!-- </div> -->
+      </section>
+    </div>
 
   <script type="text/javascript" src="main.js"> </script>
 </body>

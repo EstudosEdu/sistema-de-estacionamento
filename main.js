@@ -1,12 +1,3 @@
-// document.querySelector("#add")
-// .addEventListener("click", addCar);
-
-// document.querySelector("#remover")
-// .addEventListener("click", removeCar);
-
-// document.querySelector("#modificar")
-// .addEventListener("click", editCar);
-
 document.querySelector("#addConfirme")
   .addEventListener("click", addCar);
 
@@ -14,13 +5,11 @@ document.querySelector("#removeConfirm")
   .addEventListener("click", removeCar);
 
 document.querySelector("#editConfirm")
-  // .addEventListener("click", );
+  .addEventListener("click", alteraEdit);
 
 
 //Variaveis
 let lista = document.querySelector("#listaTudo")
-
-
 let pergNome = '';
 let pergPlaca = '';
 let pergVaga = null;
@@ -76,6 +65,47 @@ function addCar() {
 }
 
 //função de modificação
+
+let editAtualizar = document.querySelector('#editAtualizar')
+  .addEventListener("click", testeEdit)
+
+function testeEdit(){
+  let vagaEdit = document.querySelector('#editValorVaga').value
+
+  for(let i = 0; i < banco.length; i++){
+  let editVaga = banco[i].vaga;
+    if(editVaga == vagaEdit){
+      document.querySelector('#editNome').value = banco[i].nome
+      document.querySelector('#editPlaca').value = banco[i].placa
+      document.querySelector('#editVaga').value = banco[i].vaga
+    }
+  }
+
+}
+
+//ao confirmar chama essa função que altera os dados lá no banco
+function alteraEdit(){
+  let editNome = document.querySelector('#editNome').value
+  let editPlaca = document.querySelector('#editPlaca').value
+  let editVaga = document.querySelector('#editVaga').value
+  let vagaEdit = document.querySelector('#editValorVaga').value
+
+  if(vagaEdit != '' || null){
+    for(let i = 0; i < banco.length; i++){
+    let editVaga = banco[i].vaga;
+      if(editVaga == vagaEdit){
+        banco[i].nome = editNome,
+        banco[i].placa = editPlaca,
+        banco[i].vaga = editVaga
+      }
+    }
+  }else{
+    alert('Valor indefinido ao Vaga, por favor preencha esse campo!')
+  }
+  listarCar()
+}
+
+
 function editCar(){
   editUpgradeVaga();
   alert("Veiculo Modificado com sucesso.")
