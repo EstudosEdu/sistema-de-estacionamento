@@ -81,7 +81,6 @@ function atualizaEdit(){
       document.querySelector('#editVaga').value = banco[i].vaga
     }
   }
-
 }
 
 //ao confirmar chama essa função que altera os dados lá no banco
@@ -104,6 +103,10 @@ function alteraEdit(){
     alert('Valor indefinido ao Vaga, por favor preencha esse campo!')
   }
   listarCar()
+  document.querySelector('#editValorVaga').value = null;
+  document.querySelector('#editNome').value = '';
+  document.querySelector('#editPlaca').value = '';
+  document.querySelector('#editVaga').value = null;
 }
 
 
