@@ -50,7 +50,9 @@ function listarCar() {
 
   document.querySelector('#ConfirmeEdit').style.display = 'none'
   document.querySelector('#ConfirmeAdd').style.display = 'inline'
+}
 
+function limpaTudo(){
   document.querySelector('#addNome').value = ''
   document.querySelector('#addPlaca').value = ''
   document.querySelector('#addVaga').value = ''
@@ -63,11 +65,18 @@ function addCar() {
   let addVaga = document.querySelector('#addVaga').value
   let jaExiste = false
 
+  // let regexPlaca1 = /[A-Z]{1,3}-[0-9]{1,4}/gi;
+  // let regexPlaca2 = /[A-Z]{1,4}[0-9]{1,3}/gi;
+
+  adicionaCar(addNome, addPlaca, addVaga, jaExiste);
+}
+
+function adicionaCar(addNome, addPlaca, addVaga, jaExiste){
   for (let i = 0; i < banco.length; i++) {
     let vaga = banco[i].vaga
 
     if (vaga == addVaga) {
-      jaExiste = true
+      jaExiste = true 
     } else if (jaExiste) {
       break
     }
@@ -82,6 +91,7 @@ function addCar() {
         placa: addPlaca,
         vaga: Number(addVaga)
       })
+      limpaTudo()
     } else {
       alert('Coloque todos os valores')
     }
@@ -129,6 +139,7 @@ function concluirEdicao() {
     alert('Valor indefinido ao Vaga, por favor preencha esse campo!')
   }
   listarCar()
+  limpaTudo()
 
   document.querySelector('#titleForm').innerHTML = 'Adicionar veiculo'
 }
@@ -142,6 +153,7 @@ function removeCar(vaga) {
       if (valorVaga == removeCar) {
         banco.splice(i, 1)
         listarCar()
+        limpaTudo()
       }
     }
   }
