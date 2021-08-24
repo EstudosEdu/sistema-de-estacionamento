@@ -35,17 +35,20 @@ function listarCar() {
             style="cursor: pointer;"
             onclick="preparaEdicao(${i.vaga})"
           >
-            Editar
+          <img src="assets/img/pencil-square.svg" width="20px" heigth="20px"> 
           </label>
           -
           <label 
             style="cursor: pointer;"
             onclick="removeCar(${i.vaga})"
           >
-            Remover
+          <img src="assets/img/trash.png" width="20px" heigth="20px" > 
           </label>
+
+          
+
         </td>
-      </tr>`;
+      </tr>`;  
   }
 
   document.querySelector("#ConfirmeEdit").style.display = "none";
@@ -71,9 +74,9 @@ function addCar() {
   } else {
     alert('Coloque todos os valores')
   }
-
+  
   listarCar()
-
+  
   document.querySelector('#addNome').value = '';
   document.querySelector('#addPlaca').value = '';
   document.querySelector('#addVaga').value = null;
