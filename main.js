@@ -136,8 +136,7 @@ function concluirEdicao() {
 //função para remover um veiculo
 function removeCar(vaga) {
   let removeCar = vaga
-
-  if (vaga != '' || null) {
+  if(confirm('Deseja deletar?')){
     for (let i = 0; i < banco.length; i++) {
       let valorVaga = banco[i].vaga
       if (valorVaga == removeCar) {
@@ -145,7 +144,5 @@ function removeCar(vaga) {
         listarCar()
       }
     }
-  } else {
-    alert('Coloque todos os valores')
   }
 }
