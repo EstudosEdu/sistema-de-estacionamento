@@ -1,29 +1,29 @@
 //banco de dados
 let banco = [
   {
-    nome: "João",
-    placa: "AAA1234",
+    nome: 'João',
+    placa: 'AAA1234',
     vaga: 29
   },
   {
-    nome: "Cleber",
-    placa: "BBB1240",
+    nome: 'Cleber',
+    placa: 'BBB1240',
     vaga: 10
   },
   {
-    nome: "Maria",
-    placa: "CBA2021",
+    nome: 'Maria',
+    placa: 'CBA2021',
     vaga: 15
-  },
-];
+  }
+]
 
-window.onload = listarCar;
+window.onload = listarCar
 
 //função listar veiculos
 function listarCar() {
-  let lista = document.querySelector("#listaTudo")
+  let lista = document.querySelector('#listaTudo')
 
-  lista.innerHTML = "";
+  lista.innerHTML = ''
   for (let i of banco) {
     lista.innerHTML += `
       <tr>
@@ -45,15 +45,15 @@ function listarCar() {
           <img src="assets/img/trash_white.svg" alt="Remover" width="20px">
           </label>
         </td>
-      </tr>`;  
+      </tr>`
   }
 
-  document.querySelector("#ConfirmeEdit").style.display = "none";
-  document.querySelector("#ConfirmeAdd").style.display = "inline";
+  document.querySelector('#ConfirmeEdit').style.display = 'none'
+  document.querySelector('#ConfirmeAdd').style.display = 'inline'
 
-  document.querySelector('#addNome').value = ""
-  document.querySelector('#addPlaca').value = ""
-  document.querySelector('#addVaga').value = ""
+  document.querySelector('#addNome').value = ''
+  document.querySelector('#addPlaca').value = ''
+  document.querySelector('#addVaga').value = ''
 }
 
 //função Adicionar veiculo
@@ -61,22 +61,33 @@ function addCar() {
   let addNome = document.querySelector('#addNome').value
   let addPlaca = document.querySelector('#addPlaca').value
   let addVaga = document.querySelector('#addVaga').value
+  let jaExiste = false
 
-  if (addNome && addPlaca && addVaga != '' || null) {
-    banco.push({
-      nome: addNome,
-      placa: addPlaca,
-      vaga: Number(addVaga),
-    });
-  } else {
-    alert('Coloque todos os valores')
+  for (let i = 0; i < banco.length; i++) {
+    let vaga = banco[i].vaga
+
+    if (vaga == addVaga) {
+      jaExiste = true
+    } else if (jaExiste) {
+      break
+    }
   }
-  
+
+  if (jaExiste) {
+    alert('Já existem veículos nesta "VAGA"...')
+  } else {
+    if ((addNome && addPlaca && addVaga != '') || null) {
+      banco.push({
+        nome: addNome,
+        placa: addPlaca,
+        vaga: Number(addVaga)
+      })
+    } else {
+      alert('Coloque todos os valores')
+    }
+  }
+
   listarCar()
-  
-  document.querySelector('#addNome').value = '';
-  document.querySelector('#addPlaca').value = '';
-  document.querySelector('#addVaga').value = null;
 }
 
 //função que prepara para modificação
@@ -84,7 +95,7 @@ function preparaEdicao(vaga) {
   let vagaEdit = vaga
 
   for (let i = 0; i < banco.length; i++) {
-    let editVaga = banco[i].vaga;
+    let editVaga = banco[i].vaga
     if (editVaga == vagaEdit) {
       document.querySelector('#addNome').value = banco[i].nome
       document.querySelector('#addPlaca').value = banco[i].placa
@@ -92,10 +103,10 @@ function preparaEdicao(vaga) {
       document.querySelector('#addVaga').setAttribute('disabled', true)
     }
 
-    document.querySelector("#titleForm").innerHTML = "Editar Veiculo"
+    document.querySelector('#titleForm').innerHTML = 'Editar Veiculo'
 
-    document.querySelector("#ConfirmeEdit").style.display = "inline";
-    document.querySelector("#ConfirmeAdd").style.display = "none";
+    document.querySelector('#ConfirmeEdit').style.display = 'inline'
+    document.querySelector('#ConfirmeAdd').style.display = 'none'
   }
 }
 
@@ -107,11 +118,11 @@ function concluirEdicao() {
 
   if (editVaga != '' || null) {
     for (let i = 0; i < banco.length; i++) {
-      let editaVaga = banco[i].vaga;
+      let editaVaga = banco[i].vaga
       if (editaVaga == editVaga) {
-        banco[i].nome = editNome,
-        banco[i].placa = editPlaca,
-        banco[i].vaga = editVaga
+        ;(banco[i].nome = editNome),
+          (banco[i].placa = editPlaca),
+          (banco[i].vaga = editVaga)
       }
     }
   } else {
@@ -119,7 +130,7 @@ function concluirEdicao() {
   }
   listarCar()
 
-  document.querySelector("#titleForm").innerHTML = "Adicionar veiculo"
+  document.querySelector('#titleForm').innerHTML = 'Adicionar veiculo'
 }
 
 //função para remover um veiculo
@@ -128,13 +139,13 @@ function removeCar(vaga) {
 
   if (vaga != '' || null) {
     for (let i = 0; i < banco.length; i++) {
-      let valorVaga = banco[i].vaga;
+      let valorVaga = banco[i].vaga
       if (valorVaga == removeCar) {
-        banco.splice(i, 1);
-        listarCar();
+        banco.splice(i, 1)
+        listarCar()
       }
     }
   } else {
-    alert("Coloque todos os valores")
+    alert('Coloque todos os valores')
   }
 }
