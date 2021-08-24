@@ -1,66 +1,77 @@
-document.querySelector("#addConfirme")
-  .addEventListener("click", addCar);
-
-document.querySelector("#removeConfirm")
-  .addEventListener("click", removeCar);
-
-document.querySelector("#editConfirm")
-  .addEventListener("click", alteraEdit);
-
-  
-  
-//Variaveis
-let editAtualizar = document.querySelector('#editAtualizar')
-  .addEventListener("click", atualizaEdit)
-
-let lista = document.querySelector("#listaTudo")
-let pergNome = '';
-let pergPlaca = '';
-let pergVaga = null;
-
-//Mostrar lista ao carregar a pagina
-window.onload = listarCar;
-
-//banco de dados ficticio
+//banco de dados
 let banco = [
   {
-   nome: "João",
-   placa: "AAA1234",
-   vaga: 29
+    nome: "João",
+    placa: "AAA1234",
+    vaga: 29
   },
-  {nome: "Cleber",
-   placa: "BBB1240",
-   vaga: 10
+  {
+    nome: "Cleber",
+    placa: "BBB1240",
+    vaga: 10
   },
-  {nome: "Maria",
-   placa: "CBA2021",
-   vaga: 15
+  {
+    nome: "Maria",
+    placa: "CBA2021",
+    vaga: 15
   },
 ];
 
-//função listar
-function listarCar(){
+window.onload = listarCar;
+
+//função listar veiculos
+function listarCar() {
+  let lista = document.querySelector("#listaTudo")
+
   lista.innerHTML = "";
-  for(let i of banco){
-    lista.innerHTML += `<tr> <td>${i.nome}</td> <td>${i.placa}</td><td>${i.vaga}</td> </tr>`;
+  for (let i of banco) {
+    lista.innerHTML += `
+      <tr>
+        <td>${i.nome}</td>
+        <td>${i.placa}</td>
+        <td>${i.vaga}</td>
+        <td>
+          <label 
+            style="cursor: pointer;"
+            onclick="preparaEdicao(${i.vaga})"
+          >
+          <img src="assets/img/pencil-square_white.svg" alt="Remover" width="20px">
+          </label>
+          -
+          <label 
+            style="cursor: pointer;"
+            onclick="removeCar(${i.vaga})"
+          >
+          <img src="assets/img/trash_white.svg" alt="Remover" width="20px">
+          </label>
+        </td>
+      </tr>`;  
   }
+
+  document.querySelector("#ConfirmeEdit").style.display = "none";
+  document.querySelector("#ConfirmeAdd").style.display = "inline";
+
+  document.querySelector('#addNome').value = ""
+  document.querySelector('#addPlaca').value = ""
+  document.querySelector('#addVaga').value = ""
 }
 
-//função Adicionar Carro
+//função Adicionar veiculo
 function addCar() {
   let addNome = document.querySelector('#addNome').value
   let addPlaca = document.querySelector('#addPlaca').value
   let addVaga = document.querySelector('#addVaga').value
 
-  if(addNome && addPlaca && addVaga != '' || null){
+  if (addNome && addPlaca && addVaga != '' || null) {
     banco.push({
       nome: addNome,
       placa: addPlaca,
       vaga: Number(addVaga),
     });
-  }else{
+  } else {
     alert('Coloque todos os valores')
   }
+  
   listarCar()
   
   document.querySelector('#addNome').value = '';
@@ -68,62 +79,62 @@ function addCar() {
   document.querySelector('#addVaga').value = null;
 }
 
-//função de modificação
+//função que prepara para modificação
+function preparaEdicao(vaga) {
+  let vagaEdit = vaga
 
-function atualizaEdit(){
-  let vagaEdit = document.querySelector('#editValorVaga').value
-
-  for(let i = 0; i < banco.length; i++){
-  let editVaga = banco[i].vaga;
-    if(editVaga == vagaEdit){
-      document.querySelector('#editNome').value = banco[i].nome
-      document.querySelector('#editPlaca').value = banco[i].placa
-      document.querySelector('#editVaga').value = banco[i].vaga
+  for (let i = 0; i < banco.length; i++) {
+    let editVaga = banco[i].vaga;
+    if (editVaga == vagaEdit) {
+      document.querySelector('#addNome').value = banco[i].nome
+      document.querySelector('#addPlaca').value = banco[i].placa
+      document.querySelector('#addVaga').value = banco[i].vaga
+      document.querySelector('#addVaga').setAttribute('disabled', true)
     }
+
+    document.querySelector("#titleForm").innerHTML = "Editar Veiculo"
+
+    document.querySelector("#ConfirmeEdit").style.display = "inline";
+    document.querySelector("#ConfirmeAdd").style.display = "none";
   }
 }
 
-//ao confirmar chama essa função que altera os dados lá no banco
-function alteraEdit(){
-  let editNome = document.querySelector('#editNome').value
-  let editPlaca = document.querySelector('#editPlaca').value
-  let editVaga = document.querySelector('#editVaga').value
-  let vagaEdit = document.querySelector('#editValorVaga').value
+//função que conclui a modificação
+function concluirEdicao() {
+  let editNome = document.querySelector('#addNome').value
+  let editPlaca = document.querySelector('#addPlaca').value
+  let editVaga = document.querySelector('#addVaga').value
 
-  if(vagaEdit != '' || null){
-    for(let i = 0; i < banco.length; i++){
-    let editaVaga = banco[i].vaga;
-      if(editaVaga == vagaEdit){
+  if (editVaga != '' || null) {
+    for (let i = 0; i < banco.length; i++) {
+      let editaVaga = banco[i].vaga;
+      if (editaVaga == editVaga) {
         banco[i].nome = editNome,
         banco[i].placa = editPlaca,
         banco[i].vaga = editVaga
       }
     }
-  }else{
+  } else {
     alert('Valor indefinido ao Vaga, por favor preencha esse campo!')
   }
   listarCar()
-  document.querySelector('#editValorVaga').value = null;
-  document.querySelector('#editNome').value = '';
-  document.querySelector('#editPlaca').value = '';
-  document.querySelector('#editVaga').value = null;
+
+  document.querySelector("#titleForm").innerHTML = "Adicionar veiculo"
 }
 
+//função para remover um veiculo
+function removeCar(vaga) {
+  let removeCar = vaga
 
-//função removerCar
-function removeCar(){
-  let removeCar = document.querySelector('#removeVaga').value
-
-  if(removeCar != '' || null){
-    for(let i = 0; i < banco.length; i++){
+  if (vaga != '' || null) {
+    for (let i = 0; i < banco.length; i++) {
       let valorVaga = banco[i].vaga;
-        if(valorVaga == removeCar){
-          banco.splice(i, 1);
-          listarCar();
-        }
+      if (valorVaga == removeCar) {
+        banco.splice(i, 1);
+        listarCar();
+      }
     }
-  }else{
+  } else {
     alert("Coloque todos os valores")
   }
-  document.querySelector('#removeVaga').value = null;
 }
