@@ -102,7 +102,7 @@ function adicionaCar(addNome, addPlaca, addVaga, jaExiste) {
       alert('Vaga 0 não pode ser adicionado carro')
     } else if ((addNome && addPlaca && addVaga != '') || null) {
       banco.push({
-        nome: addNome,
+        nome: addNome.charAt(0).toUpperCase() + addNome.slice(1),
         placa: addPlaca.toUpperCase(),
         vaga: Number(addVaga)
       })
