@@ -52,7 +52,7 @@ function listarCar() {
   document.querySelector('#ConfirmeAdd').style.display = 'inline'
 }
 
-function limpaTudo(){
+function limpaTudo() {
   document.querySelector('#addNome').value = ''
   document.querySelector('#addPlaca').value = ''
   document.querySelector('#addVaga').value = ''
@@ -64,34 +64,32 @@ function addCar() {
   let addPlaca = document.querySelector('#addPlaca').value
   let addVaga = document.querySelector('#addVaga').value
   let jaExiste = false
-  
+
   verifcPlaca(addNome, addPlaca, addVaga, jaExiste)
 }
 
-function verifcPlaca(addNome, addPlaca, addVaga, jaExiste){
-  let regexPlaca1 = /([A-Z]{3})([0-9]{4})/gi;
-  let regexPlaca2 = /([A-Z]{3})([0-9]{1})([A-Z]{1})([0-9]{2})/gi;
+function verifcPlaca(addNome, addPlaca, addVaga, jaExiste) {
+  let regexPlaca1 = /([A-Z]{3})([0-9]{4})/gi
+  let regexPlaca2 = /([A-Z]{3})([0-9]{1})([A-Z]{1})([0-9]{2})/gi
 
-  let resul1 = regexPlaca1.test(addPlaca);
-  let resul2 = regexPlaca2.test(addPlaca);
+  let resul1 = regexPlaca1.test(addPlaca)
+  let resul2 = regexPlaca2.test(addPlaca)
 
-  if(resul1){
-    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
-
-  }else if(resul2){
-    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
-
-  }else{
+  if (resul1) {
+    adicionaCar(addNome, addPlaca, addVaga, jaExiste)
+  } else if (resul2) {
+    adicionaCar(addNome, addPlaca, addVaga, jaExiste)
+  } else {
     alert('Modelo de Placa INVALIDA!!!')
   }
-} 
+}
 
-function adicionaCar(addNome, addPlaca, addVaga, jaExiste){
+function adicionaCar(addNome, addPlaca, addVaga, jaExiste) {
   for (let i = 0; i < banco.length; i++) {
     let vaga = banco[i].vaga
 
     if (vaga == addVaga) {
-      jaExiste = true 
+      jaExiste = true
     } else if (jaExiste) {
       break
     }
@@ -100,7 +98,9 @@ function adicionaCar(addNome, addPlaca, addVaga, jaExiste){
   if (jaExiste) {
     alert('Já existem veículos nesta "VAGA"...')
   } else {
-    if ((addNome && addPlaca && addVaga != '') || null) {
+    if (addVaga == 0) {
+      alert('Vaga 0 não pode ser adicionado carro')
+    } else if ((addNome && addPlaca && addVaga != '') || null) {
       banco.push({
         nome: addNome,
         placa: addPlaca.toUpperCase(),
@@ -162,7 +162,7 @@ function concluirEdicao() {
 //função para remover um veiculo
 function removeCar(vaga) {
   let removeCar = vaga
-  if(confirm('Deseja deletar?')){
+  if (confirm('Deseja deletar?')) {
     for (let i = 0; i < banco.length; i++) {
       let valorVaga = banco[i].vaga
       if (valorVaga == removeCar) {
