@@ -64,9 +64,27 @@ function addCar() {
   let addPlaca = document.querySelector('#addPlaca').value
   let addVaga = document.querySelector('#addVaga').value
   let jaExiste = false
-
+  
   verifcPlaca(addNome, addPlaca, addVaga, jaExiste)
 }
+
+function verifcPlaca(addNome, addPlaca, addVaga, jaExiste){
+  let regexPlaca1 = /([A-Z]{3})([0-9]{4})/gi;
+  let regexPlaca2 = /([A-Z]{3})([0-9]{1})([A-Z]{1})([0-9]{2})/gi;
+
+  let resul1 = regexPlaca1.test(addPlaca);
+  let resul2 = regexPlaca2.test(addPlaca);
+
+  if(resul1){
+    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
+
+  }else if(resul2){
+    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
+
+  }else{
+    alert('Modelo de Placa INVALIDA!!!')
+  }
+} 
 
 function adicionaCar(addNome, addPlaca, addVaga, jaExiste){
   for (let i = 0; i < banco.length; i++) {
@@ -85,7 +103,7 @@ function adicionaCar(addNome, addPlaca, addVaga, jaExiste){
     if ((addNome && addPlaca && addVaga != '') || null) {
       banco.push({
         nome: addNome,
-        placa: addPlaca,
+        placa: addPlaca.toUpperCase(),
         vaga: Number(addVaga)
       })
       limpaTudo()
@@ -153,23 +171,5 @@ function removeCar(vaga) {
         limpaTudo()
       }
     }
-  }
-}
-
-function verifcPlaca(addNome, addPlaca, addVaga, jaExiste){
-  let regexPlaca1 = /([A-Z]{3})([0-9]{4})/gi;
-  let regexPlaca2 = /([A-Z]{3})([0-9]{1})([A-Z]{1})([0-9]{2})/gi;
-
-  let resul1 = regexPlaca1.test(addPlaca);
-  let resul2 = regexPlaca2.test(addPlaca);
-
-  if(resul1){
-    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
-
-  }else if(resul2){
-    adicionaCar(addNome, addPlaca, addVaga, jaExiste);
-
-  }else{
-    alert('Modelo de Placa INVALIDA!!!')
   }
 }
